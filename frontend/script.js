@@ -78,7 +78,7 @@ class ChatApp {
   }
 
   connectSocket() {
-    const backendUrl = `livechat-docker-production.up.railway.app`
+    const backendUrl = `https://livechat-docker-production.up.railway.app`
     console.log("Connecting to:", backendUrl)
 
     this.socket = io(backendUrl, {
@@ -445,7 +445,7 @@ class ChatApp {
 
   async loadRooms() {
     try {
-      const response = await fetch(`livechat-docker-production.up.railway.app/rooms`)
+      const response = await fetch(`${backendUrl}/rooms`)
       const data = await response.json()
       this.displayRooms(data.rooms || [])
     } catch (error) {
@@ -508,7 +508,7 @@ class ChatApp {
     }
 
     try {
-      const response = await fetch(`livechat-docker-production.up.railway.app/create-room`, {
+      const response = await fetch(`${backendUrl}/create-room`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
