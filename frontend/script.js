@@ -445,7 +445,7 @@ class ChatApp {
 
   async loadRooms() {
     try {
-      const response = await fetch(`http://${window.location.hostname}:5000/rooms`)
+      const response = await fetch(`livechat-docker-production.up.railway.app/rooms`)
       const data = await response.json()
       this.displayRooms(data.rooms || [])
     } catch (error) {
@@ -508,7 +508,7 @@ class ChatApp {
     }
 
     try {
-      const response = await fetch(`http://${window.location.hostname}:5000/create-room`, {
+      const response = await fetch(`livechat-docker-production.up.railway.app/create-room`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
