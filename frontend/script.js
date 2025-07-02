@@ -78,7 +78,7 @@ class ChatApp {
   }
 
   connectSocket() {
-    const backendUrl = `http://${window.location.hostname}:5000`
+    const backendUrl = `livechat-docker-production.up.railway.app`
     console.log("Connecting to:", backendUrl)
 
     this.socket = io(backendUrl, {
