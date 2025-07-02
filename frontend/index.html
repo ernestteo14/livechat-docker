@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Main Chat Interface -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="room-info">
+                    <h1 id="roomTitle">General Chat</h1>
+                    <div class="room-controls">
+                        <button class="rooms-btn" id="roomsBtn" title="Browse Rooms">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                            </svg>
+                        </button>
+                        <button class="create-btn" id="createBtn" title="Create Room">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <div class="timer-info">
+                        <span class="timer-label">Clear in:</span>
+                        <span class="timer" id="clearTimer">5:00</span>
+                    </div>
+                    <div class="status" id="status">Connecting...</div>
+                </div>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="welcome-message">
+                    Welcome to General Chat! Messages clear every 5 minutes.
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        id="messageInput" 
+                        placeholder="Type a message..." 
+                        maxlength="500"
+                        autocomplete="off"
+                    >
+                    <button id="sendButton">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22,2 15,22 11,13 2,9"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="char-counter">
+                    <span id="charCount">0</span>/500
+                </div>
+            </div>
+        </div>
+
+        <!-- Rooms Sidebar -->
+        <div class="rooms-sidebar" id="roomsSidebar">
+            <div class="sidebar-header">
+                <h2>Chat Rooms</h2>
+                <button class="close-sidebar" id="closeSidebar">×</button>
+            </div>
+            <div class="rooms-list" id="roomsList">
+                <div class="loading">Loading rooms...</div>
+            </div>
+        </div>
+
+        <!-- Create Room Modal -->
+        <div class="modal-overlay" id="createModal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>Create New Room</h2>
+                    <button class="close-modal" id="closeModal">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="roomName">Room Name</label>
+                        <input type="text" id="roomName" placeholder="Enter room name..." maxlength="30">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clearInterval">Clear Messages Every</label>
+                        <select id="clearInterval">
+                            <option value="1">1 minute</option>
+                            <option value="2">2 minutes</option>
+                            <option value="5" selected>5 minutes</option>
+                            <option value="10">10 minutes</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="roomDuration">Room Duration (Max 10 minutes)</label>
+                        <select id="roomDuration">
+                            <option value="2">2 minutes</option>
+                            <option value="5" selected>5 minutes</option>
+                            <option value="10">10 minutes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" id="cancelCreate">Cancel</button>
+                    <button class="btn-primary" id="confirmCreate">Create Room</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
