@@ -1,4 +1,5 @@
 const io = window.io
+const backendUrl = `https://livechat-docker-production.up.railway.app`
 
 class ChatApp {
   constructor() {
@@ -78,7 +79,6 @@ class ChatApp {
   }
 
   connectSocket() {
-    const backendUrl = `https://livechat-docker-production.up.railway.app`
     console.log("Connecting to:", backendUrl)
 
     this.socket = io(backendUrl, {
