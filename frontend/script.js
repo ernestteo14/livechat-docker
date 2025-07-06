@@ -575,3 +575,20 @@ let app
 document.addEventListener("DOMContentLoaded", () => {
   app = new ChatApp()
 })
+
+// THEME BACKGROUND CYCLER
+const themes = [
+  "linear-gradient(135deg, #F5F5DC 0%, #F5F5DC 100%)",  // Purple
+  "linear-gradient(135deg, #ffffff 0%,rgb(105, 102, 102) 100%)",  // Aqua-blue
+  "linear-gradient(135deg, #f5c2ce 0%, #a4cc8b 100%)",  // Soft pink
+]
+
+let currentThemeIndex = parseInt(localStorage.getItem("chat_theme_index")) || 0
+document.body.style.background = themes[currentThemeIndex]
+
+const themeBtn = document.getElementById("themeToggleBtn")
+themeBtn.addEventListener("click", () => {
+  currentThemeIndex = (currentThemeIndex + 1) % themes.length
+  document.body.style.background = themes[currentThemeIndex]
+  localStorage.setItem("chat_theme_index", currentThemeIndex)
+})
