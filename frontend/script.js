@@ -1,5 +1,5 @@
 const io = window.io
-const backendUrl = `https://livechat-docker-production.up.railway.app`
+const backendUrl = `http://${window.location.hostname}:5000`
 
 class ChatApp {
   constructor() {
