@@ -465,8 +465,8 @@ class ChatApp {
         (room) => `
       <div class="room-item ${room.room_id === this.currentRoom ? "active" : ""}" 
            onclick="app.selectRoom('${room.room_id}')">
+        <h3>${this.escapeHtml(room.name)} ${room.is_default ? "(Default)" : ""}</h3>
         <div class="room-info">
-          <h3>${this.escapeHtml(room.name)} ${room.is_default ? "(Default)" : ""}</h3>
           <div class="room-details">
             <span class="user-count">👥 ${room.user_count} online</span>
             <span>${room.message_count} messages</span>

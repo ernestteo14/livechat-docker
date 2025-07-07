@@ -23,8 +23,8 @@ body {
 
 .chat-container {
   width: 100%;
-  max-width: 450px;
-  height: 600px;
+  max-width: 1200px;
+  height: 800px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -391,13 +391,21 @@ body {
 }
 
 .room-item {
+  width: 100%;
+  height: 150px; /* fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: justify;
   padding: 16px;
   border-radius: 12px;
   margin-bottom: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
   border: 1px solid #e2e8f0;
+  background: white;
 }
+
 
 .room-item:hover {
   background: #f7fafc;
@@ -665,8 +673,9 @@ body {
   }
 
   .chat-container {
-    max-width: none;
-    height: calc(100vh - 20px);
+    width: 80vh;
+    height: 70vh;
+    justify-items: center;
   }
 
   .rooms-sidebar {
@@ -684,9 +693,25 @@ body {
     flex-direction: row;
     gap: 12px;
   }
-
+  
   .room-info h1 {
     font-size: 1.2rem;
+  }
+
+  .room-item {
+    width: 100%;
+    height: 100px; /* fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: justify;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+    background: white;
   }
 }
 
@@ -718,6 +743,22 @@ body {
   .room-details {
     flex-direction: column;
     gap: 6px;
+  }
+
+  .room-item {
+    width: 100%;
+    height: 150px; /* fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: justify;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+    background: white;
   }
 }
 
