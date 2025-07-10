@@ -5,6 +5,7 @@ A real-time anonymous chat application where messages are automatically deleted 
 ## Features
 
 - 🔥 Real-time messaging using WebSockets
+- 🚪 Create and Setup new room
 - 👤 Anonymous chat (no registration required)
 - 🗑️ Auto-delete messages every 5 minutes
 - 📱 Responsive design
@@ -27,7 +28,7 @@ A real-time anonymous chat application where messages are automatically deleted 
 
 ### Using Docker Compose (Recommended)
 
-1. Clone the repository
+1. Clone the repository/Download the project
 2. Run the application:
 \`\`\`bash
 docker-compose up -d
